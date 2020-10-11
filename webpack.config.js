@@ -2,11 +2,18 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
- 
+
+
 module.exports = {
     mode: 'development',
     entry: {
         'single-spa.config': './single-spa.config.js',
+        'common-dependencies': [
+            'react',
+            'react-dom',
+            'vue',
+            'vue-template-compiler'
+          ],
     },
     output: {
         publicPath: '/dist/',
@@ -17,10 +24,10 @@ module.exports = {
         rules: [
         {
             test: /\.css$/,
-            use: ['css-loader']
+            use: ['style-loader', 'css-loader']
         }, {
             test: /\.js$/,
-            exclude: /node_modules/,
+            exclude: [path.resolve(__dirname, 'node_modules')],
             loader: 'babel-loader',
         },
         {
