@@ -17,10 +17,10 @@ module.exports = {
         rules: [
         {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            use: ['css-loader']
         }, {
             test: /\.js$/,
-            exclude: [path.resolve(__dirname, 'node_modules')],
+            exclude: /node_modules/,
             loader: 'babel-loader',
         },
         {

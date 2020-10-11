@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import singleSpaVue from 'single-spa-vue';
-import Hello from './main.vue'
+import App from './main.vue'
 
 
 const vueLifecycles = singleSpaVue({
     Vue,
     appOptions: {
-        el: '#vue',
-        render: r => r(Hello)
+        el: '#vue-app',
+        render: r => r(App)
     } 
 });
  
