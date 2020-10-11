@@ -1,0 +1,17 @@
+.gateway {
+  height: 100%;
+}
+
+.gateway-header {
+  background-color: #003B36 !important;
+}
+
+.gateway-search {
+  display: flex;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.gateway-search button {
+  margin-left: 2em;
+}
