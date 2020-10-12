@@ -9,6 +9,13 @@ import Button from '@material-ui/core/Button';
 import './style.css';
 
 const App = () => {
+  const [repo, setRepo] = React.useState('')
+
+  const handleSubmit = () => {
+    window.location = '#'
+    window.location = `#${repo}`
+  }
+
   return (
     <div className="gateway">
 
@@ -23,8 +30,8 @@ const App = () => {
       <Container>
         <Grid container justify="center">
           <Grid md={4} sm={6} xs={12} justify="center" className="gateway-search">
-            <TextField label="Repo" size="medium" fullWidth />
-            <Button variant="contained">Search</Button>
+            <TextField label="Repo" size="medium" fullWidth value={repo} onChange={(event) => setRepo(event.target.value)}/>
+            <Button variant="contained" onClick={handleSubmit}>Search</Button>
           </Grid>
         </Grid>
       </Container>
@@ -39,7 +46,7 @@ const App = () => {
           </Grid>
         </Grid>
       </Container>
-      
+
     </div>
   )
 }

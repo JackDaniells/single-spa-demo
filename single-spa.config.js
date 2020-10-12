@@ -9,8 +9,6 @@ registerApplication(
 start();
 
 window.addEventListener('load', () => {
-  console.log('OK!')
-
   registerApplication(
     'vue', 
     () => import('./src/vue/vue.app.js'),
