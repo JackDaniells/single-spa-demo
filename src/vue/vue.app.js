@@ -1,3 +1,5 @@
+import '@babel/polyfill'
+
 import Vue from 'vue';
 import singleSpaVue from 'single-spa-vue';
 import App from './main.vue'

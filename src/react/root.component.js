@@ -8,13 +8,15 @@ const App = () => {
   const [loading, setLoading] = React.useState(false);
   const [owner, setOwner] = React.useState({});
 
-  window.addEventListener('hashchange', evt => {
+  window.addEventListener('hashchange', () => {
     const repo = window.location.hash.split('#')[1]
 
     getRepoOwner({ repo })
   })
 
   const getRepoOwner = async ({ repo }) => {
+    if (!repo) return;
+    setOwner(null)
     setLoading(true);
 
     try {
@@ -23,6 +25,7 @@ const App = () => {
       setOwner(data.owner)
     } catch (error) {
       console.log(error);
+      setOwner(null)
     }
 
     setLoading(false);
@@ -30,12 +33,12 @@ const App = () => {
 
   if (loading) return (<div>Loading...</div>);
 
-  // if (!owner) return (<div></div>);
+  if (!owner) return (<div></div>);
 
   return (
     <div className="react">
-      <img className="react-picture" src="https://avatars0.githubusercontent.com/u/24396516?v=4" />
-      <h2>inacior</h2>
+      <img className="react-picture" src={owner.avatar_url} />
+      <h2>{owner.login}</h2>
     </div>
   )
 }

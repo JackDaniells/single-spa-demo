@@ -12,6 +12,7 @@ const App = () => {
   const [repo, setRepo] = React.useState('')
 
   const handleSubmit = () => {
+    window.location = '#'
     window.location = `#${repo}`
   }
 
